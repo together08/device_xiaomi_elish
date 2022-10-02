@@ -99,7 +99,7 @@ PRODUCT_PACKAGES += \
 
 # Kernel
 PRODUCT_COPY_FILES += \
-    $(ELISH_PREBUILT)/kernel/dtb:dtb
+    $(ELISH_PREBUILT)/kernel/dtb:dtb.img
 
 # Lights
 PRODUCT_PACKAGES += \
