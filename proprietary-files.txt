@@ -69,23 +69,6 @@ system_ext/lib64/libdpmtcm.so
 system_ext/lib64/vendor.qti.diaghal@1.0.so
 -system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk
 
-# Fingerptint
-vendor/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.thyme:product/vendor_overlay/30/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.thyme|0ca7a7f44f9a093c0554b9eb295fcf5ad1a17cbf
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.3-service.thyme.rc:product/vendor_overlay/30/etc/init/android.hardware.biometrics.fingerprint@2.3-service.thyme.rc|fba483d840ec124f3332e4d3cb15ded180a05d25
-vendor/lib64/android.hardware.biometrics.fingerprint@2.2.so:product/vendor_overlay/30/lib64/android.hardware.biometrics.fingerprint@2.2.so|4de1af0b7b162222654e90445ea80d605130f377
-vendor/lib64/android.hardware.biometrics.fingerprint@2.3.so:product/vendor_overlay/30/lib64/android.hardware.biometrics.fingerprint@2.3.so|006d9ef5178aeffe87622685f545227f577cd709
-
-# IMS
-system_ext/lib64/lib-imsvideocodec.so
-system_ext/lib64/lib-imsvt.so
-system_ext/lib64/lib-imsvtextutils.so
-system_ext/lib64/lib-imsvtutils.so
-system_ext/lib64/libdiag_system.so
-system_ext/lib64/libimscamera_jni.so
-system_ext/lib64/libimsmedia_jni.so
-system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
--system_ext/priv-app/ims/ims.apk
-
 # Media
 system_ext/lib/libmmosal.so
 system_ext/lib/libmmparser_lite.so
@@ -98,8 +81,6 @@ etc/sysconfig/qti_whitelist.xml
 system_ext/etc/permissions/privapp-permissions-qti-system-ext.xml
 system_ext/etc/permissions/qti_libpermissions.xml
 system_ext/etc/permissions/qti_permissions.xml
-system_ext/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml
-product/etc/permissions/telephony_product_privapp-permissions-qti.xml
 
 # Postprocessing
 system_ext/lib/vendor.display.color@1.0.so
@@ -111,17 +92,6 @@ system_ext/lib64/vendor.display.color@1.1.so
 system_ext/lib64/vendor.display.color@1.2.so
 system_ext/lib64/vendor.display.color@1.3.so
 
-# RIL
--system_ext/app/atfwd/atfwd.apk
--system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
-system_ext/etc/permissions/qcrilhook.xml
-system_ext/framework/qcrilhook.jar
--system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
-
 # SoundFX - from lemonade qssi-user-11-RKQ1.201105.002-2109102009-release-keys
 vendor/lib/soundfx/libvolumelistener.so:product/vendor_overlay/30/lib/soundfx/libvolumelistener.so|b942c3aa1ffa563ec3f58d6789a0fbddae992c25
 vendor/lib64/soundfx/libvolumelistener.so:product/vendor_overlay/30/lib64/soundfx/libvolumelistener.so|e7240dbaeae2c32932c294ca3500865523c9276d
-
-# Vibrator - 12
-system/lib/libvibratorservice.so|994b508f8eb893d25314932eab83e9235bafca5e
-system/lib64/libvibratorservice.so|97b96add9c77a1dcba13dcad23031906197b7c82

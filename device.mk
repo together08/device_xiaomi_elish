@@ -4,10 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-$(call inherit-product, vendor/xiaomi/thyme/thyme-vendor.mk)
-$(call inherit-product, vendor/xiaomi/thyme-miuicamera/thyme-miuicamera-vendor.mk)
+$(call inherit-product, vendor/xiaomi/elish/elish-vendor.mk)
 
-THYME_PREBUILT := device/xiaomi/thyme-prebuilt
+ELISH_PREBUILT := device/xiaomi/elish-prebuilt
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
@@ -61,10 +60,6 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     libaacwrapper
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/audio/audio_policy_configuration.xml \
-    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/audio_policy_configuration.xml
-
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
@@ -83,7 +78,7 @@ PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
     init.recovery.qcom.rc \
     init.recovery.usb.rc \
-    init.thyme.rc \
+    init.elish.rc \
     fstab.qcom
 
 # fastbootd
@@ -104,31 +99,11 @@ PRODUCT_PACKAGES += \
 
 # Kernel
 PRODUCT_COPY_FILES += \
-    $(THYME_PREBUILT)/kernel/dtb.img:dtb.img
+    $(ELISH_PREBUILT)/kernel/dtb.img:dtb.img
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.lights-service.thyme
-
-# MIUI Camera
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/default-permissions/miuicamera-permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/default-permissions/miuicamera-permissions.xml \
-    $(LOCAL_PATH)/configs/permissions/privapp-permissions-miuicamera.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-miuicamera.xml
-
-# Sysconfig
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sysconfig/miuicamera-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/miuicamera-hiddenapi-package-whitelist.xml
-
-# NFC
-PRODUCT_PACKAGES += \
-    NfcNci \
-    Tag \
-    SecureElement \
-    com.android.nfc_extras
-
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
+    android.hardware.lights-service.elish
 
 # Parts
 PRODUCT_PACKAGES += \
@@ -136,14 +111,11 @@ PRODUCT_PACKAGES += \
 
 # RRO Overlays
 PRODUCT_PACKAGES += \
-    FrameworkResOverlayThyme \
-    WifiResOverlayThyme \
-    DialerOverlayThyme \
-    SettingsOverlayThyme \
-    CarrierConfigOverlayThyme \
-    TelephonyOverlayThyme \
-    SystemUIOverlayThyme \
-    SettingsProviderOverlayThyme
+    FrameworkResOverlayElish \
+    WifiResOverlayElish \
+    SettingsOverlayElish \
+    SystemUIOverlayElish \
+    SettingsProviderOverlayElish
 
 # Overlays - override vendor ones
 PRODUCT_PACKAGES += \
@@ -165,20 +137,7 @@ include $(LOCAL_PATH)/properties/default.mk
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    hardware/xiaomi
-
-# Telephony & IMS  
-PRODUCT_PACKAGES += \
-    ims-ext-common \
-    ims_ext_common.xml \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.ims.xml
+    $(LOCAL_PATH)
 
 # Update engine
 PRODUCT_PACKAGES += \
@@ -194,7 +153,3 @@ PRODUCT_PACKAGES_DEBUG += \
 # Vendor boot
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
-
-# Vendor boot modules
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(THYME_PREBUILT)/modules/,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules)

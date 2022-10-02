@@ -13,8 +13,8 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.lights-service.thyme",
-    init_rc: ["android.hardware.lights-service.thyme.rc"],
+    name: "android.hardware.lights-service.elish",
+    init_rc: ["android.hardware.lights-service.elish.rc"],
     relative_install_path: "hw",
     shared_libs: [
         "libbase",

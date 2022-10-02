@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/kscope_thyme.mk
+    $(LOCAL_DIR)/kscope_elish.mk
 
 COMMON_LUNCH_CHOICES := \
-    kscope_thyme-eng \
-    kscope_thyme-userdebug \
-    kscope_thyme-user
+    kscope_elish-eng \
+    kscope_elish-userdebug \
+    kscope_elish-user
