@@ -92,9 +92,9 @@ TARGET_PREBUILT_KERNEL := $(ELISH_PREBUILT)/kernel/kernel
 TARGET_PREBUILT_DTB := $(ELISH_PREBUILT)/kernel/dtb
 BOARD_PREBUILT_DTBOIMAGE := $(ELISH_PREBUILT)/kernel/dtbo.img
 
-TARGET_KERNEL_CONFIG := vendor/elish_user_defconfig
+TARGET_KERNEL_CONFIG := vendor/alioth_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_SOURCE := kernel/xiaomi/elish
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8250
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
